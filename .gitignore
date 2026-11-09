@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Front (Next.js)
+front/node_modules/
+front/.next/
+front/out/
+
+# Telemetry Data
+data/
+*.csv
+*.parquet
+*.ibt
+
+# Generated Reports
+reports/
+
+# Local Configuration
+.env
+.env.*
+
+# System & Editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
