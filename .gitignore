@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+.uv.lock
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
@@ -25,6 +26,7 @@ reports/
 # Local Configuration
 .env
 .env.*
+
 
 # System & Editors
 .DS_Store
