@@ -1,0 +1,7 @@
+[project]
+name = "iracing-telemetry-analyser"
+version = "0.1.0"
+description = "Sim racing telemetry analysis: braking points, brake traces and lap-by-lap KPIs against a reference lap."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
