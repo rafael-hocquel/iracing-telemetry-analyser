@@ -8,7 +8,7 @@ def main():
 
 @app.get("/api/health")
 def read_root():
-    return {"status": "healthy", "status_code": 200, "checks": {"fastAPI": "running"}}
+    return {"status": "healthy", "checks": {"fastAPI": "running"}}
 
 
 if __name__ == "__main__":
