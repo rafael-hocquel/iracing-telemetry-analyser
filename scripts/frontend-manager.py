@@ -69,6 +69,9 @@ def setupOUTFolder():
     except OSError:
         sys.exit(f"Unable to move {OUTFOLDER} to {APIFOLDER}. Check permissions for both paths")
 
+    if not STATICFOLDER.is_dir():
+        sys.exit("Error while setting up the frontend at api/static/")
+
 
 # Import-run guard
 if __name__ == "__main__":
