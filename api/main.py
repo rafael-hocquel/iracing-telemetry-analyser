@@ -1,20 +1,7 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
-
-# CORS Allowed Origins
-origins = [
-    "http://localhost:3000",
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 def main():
     print("--- iracing-telemetry-analyser ---")
@@ -23,6 +10,8 @@ def main():
 def read_root():
     return {"status": "healthy", "checks": {"fastAPI": "running"}}
 
+# Keep at the end of the files, otherwises api routes are served as static front files
+app.mount("/", StaticFiles(directory="static", html=True))
 
 if __name__ == "__main__":
     main()
