@@ -62,4 +62,5 @@ if __name__ == "__main__":
     try:
         fastAPIProcess.wait()
     except KeyboardInterrupt:
-        print("Ending")
+        fastAPIProcess.terminate()
+        print("Process terminated successfully")
