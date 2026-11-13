@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from pathlib import Path
+from pydantic import BaseModel
 
 STATICFOLDER = Path(__file__).resolve().parent / "static" / "index.html"
 app = FastAPI()
