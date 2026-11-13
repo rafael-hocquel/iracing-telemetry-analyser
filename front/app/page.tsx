@@ -6,7 +6,7 @@ export default function Home() {
   const [health, setHealth] = useState("Indisponible");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/health")
+    fetch("/api/health")
       .then((r) => r.json())
       .then((d) => {
         setHealth(d.status);
