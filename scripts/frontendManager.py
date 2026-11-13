@@ -1,3 +1,10 @@
+###########################################################
+###########################################################
+## This script builds the Next.js frontend with a static ##
+## export then places the out/ folder into api/static    ##
+###########################################################
+###########################################################
+
 # IMPORTS
 import sys
 import shutil
@@ -6,11 +13,11 @@ from pathlib import Path
 
 # PATHS
 ROOT         = Path(__file__).resolve().parent.parent
-FRONT        = ROOT / "front"
-OUTFOLDER    = FRONT / "out"
+FRONT        = ROOT  / "front"
 NEXTFOLDER   = FRONT / ".next"
-STATICFOLDER = ROOT / "api" / "static"
-APIFOLDER    = ROOT / "api"
+OUTFOLDER    = FRONT / "out"
+APIFOLDER    = ROOT  / "api"
+STATICFOLDER = ROOT  / "api" / "static"
 
 # CHECK PROJECT INTEGRITY
 def checkProjectIntegrity():
@@ -38,7 +45,7 @@ def buildFront():
         if NEXTFOLDER.is_dir():
             shutil.rmtree(NEXTFOLDER)
     except OSError:
-         sys.exit("Error while removing \"out/\" and \".next\" folder")
+        sys.exit("Error while removing \"out/\" and \".next\" folder")
 
 
     # Build Next.JS static export
@@ -62,6 +69,7 @@ def setupOUTFolder():
     if not OUTFOLDER.is_dir():
         sys.exit("Unable to find \"front/out\" folder, check project tree for issues")
 
+    # Move the Next.js out/ folder to the api/static folder
     try:
         shutil.move(OUTFOLDER, STATICFOLDER)
     except FileNotFoundError:
@@ -69,15 +77,18 @@ def setupOUTFolder():
     except OSError:
         sys.exit(f"Unable to move {OUTFOLDER} to {APIFOLDER}. Check permissions for both paths")
 
+    # Check that the api/static folder exists after move 
     if not STATICFOLDER.is_dir():
         sys.exit("Error while setting up the frontend at api/static/")
 
 
-# Import-run guard
+# Main function that checks if the project is ready for frontend build,
+# builds the fronts and move the out/ folder at the right place for fastAPI
 def prepareFrontend():
     checkProjectIntegrity()
     buildFront()
     setupOUTFolder()
 
+# Guard to prevent execution at import time
 if __name__ == "__main__":
     prepareFrontend()
