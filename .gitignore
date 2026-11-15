@@ -34,3 +34,7 @@ reports/
 Thumbs.db
 .idea/
 .vscode/
+
+
+# File conversion
+tools/ibtConversion/node_modules

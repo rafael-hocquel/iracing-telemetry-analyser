@@ -35,5 +35,10 @@ def checkProjectIntegrity():
         sys.exit("Unable to find \"api/data-files/csv-files\" folder, check project tree for issues")
 
 # convert to csv
+def convertIBT2CSV(IRFile: IRFile):
+    IBTpath = IBTFOLDER / IRFile.session_name
+
+    if not IBTpath.is_file():
+        sys.exit(f"Unable to find the \"{IBTpath}\" ibt file")
 
 # convert to parquet
