@@ -3,17 +3,21 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from pathlib import Path
-from pydantic import BaseModel
+from .objects.IRFile import IRFile
 
 STATICFOLDER = Path(__file__).resolve().parent / "static" / "index.html"
 app = FastAPI()
 
 # API Health
 @app.get("/api/health")
-def read_root():
+def health_check():
     return {"status": "healthy", "checks": {"fastAPI": "running"}}
 
-
+# Upload race-data file
+@app.post("/upload")
+async def manage_datafile(IRFile: IRFile):
+    
+    
 
 
 # Keep at the end of the files, otherwises api routes are served as static front files
