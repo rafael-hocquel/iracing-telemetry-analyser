@@ -10,6 +10,7 @@ import sys
 import shutil
 import subprocess
 from pathlib import Path
+from tools.foldersOperation import moveFolderOrFile
 
 # PATHS
 ROOT         = Path(__file__).resolve().parent.parent
@@ -70,12 +71,7 @@ def setupOUTFolder():
         sys.exit("Unable to find \"front/out\" folder, check project tree for issues")
 
     # Move the Next.js out/ folder to the api/static folder
-    try:
-        shutil.move(OUTFOLDER, STATICFOLDER)
-    except FileNotFoundError:
-        sys.exit(f"{OUTFOLDER} path was not found")
-    except OSError:
-        sys.exit(f"Unable to move {OUTFOLDER} to {APIFOLDER}. Check permissions for both paths")
+    moveFolderOrFile(OUTFOLDER, STATICFOLDER)
 
     # Check that the api/static folder exists after move 
     if not STATICFOLDER.is_dir():

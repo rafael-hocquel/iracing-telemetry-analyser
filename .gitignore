@@ -16,7 +16,6 @@ front/.next/
 front/out/
 
 # Telemetry Data
-data/
 *.csv
 *.parquet
 *.ibt
@@ -34,3 +33,7 @@ reports/
 Thumbs.db
 .idea/
 .vscode/
+
+
+# File conversion
+tools/ibtConversion/node_modules
