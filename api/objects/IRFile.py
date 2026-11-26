@@ -1,5 +1,5 @@
 from datetime import date
-from SessionType import SessionType
+from .SessionType import SessionType
 from pydantic import BaseModel
 
 class IRFile(BaseModel):
@@ -16,11 +16,11 @@ class IRFile(BaseModel):
     file_size: float
 
     def __init__(self, 
-                 sub_sessionID, session_name, 
-                 import_date, session_date, 
-                 track_name, car_model, 
-                 session_type, refresh_rate, 
-                 file_size):
+                sub_sessionID, session_name, 
+                import_date, session_date, 
+                track_name, car_model, 
+                session_type, refresh_rate, 
+                file_size):
         self.sub_sessionID = sub_sessionID
         self.session_name = session_name
         self.import_date = import_date

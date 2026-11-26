@@ -14,8 +14,8 @@ def health_check():
     return {"status": "healthy", "checks": {"fastAPI": "running"}}
 
 # Upload race-data file
-@app.post("/upload")
-async def manage_datafile(IRFile: IRFile):
+# @app.post("/upload")
+# async def manage_datafile(IRFile: IRFile):
     
     
 

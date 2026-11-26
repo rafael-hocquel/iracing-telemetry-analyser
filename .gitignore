@@ -16,7 +16,6 @@ front/.next/
 front/out/
 
 # Telemetry Data
-data/
 *.csv
 *.parquet
 *.ibt
